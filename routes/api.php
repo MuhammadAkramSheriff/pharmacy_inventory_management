@@ -15,6 +15,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:1')->group(function () {
         Route::post('/medicine', [ProductController::class, 'addItem']);
         Route::post('/customer', [CustomerController::class, 'addCustomer']);
+        Route::put('/customer/{id}', [CustomerController::class, 'updateCustomer']);
+        Route::delete('/customer/{id}', [CustomerController::class, 'deleteCustomer']);
+        Route::delete('/medicine/{id}', [ProductController::class, 'removeItem']);
+        Route::put('/medicine/{id}', [ProductController::class, 'editItem']);
     });
 
     //Manager-only routes
